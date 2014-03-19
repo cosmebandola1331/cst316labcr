@@ -1,4 +1,11 @@
 package banking.primitive.core;
+/*
+  File:ServerSolution.java
+  Author: Dr. Gary
+  Date: 3 19 2014
+
+  Description: contains Serversolution class 
+*/
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +15,19 @@ import java.io.*;
 
 import banking.primitive.core.Account.State;
 
+
+/**
+   Class:ServerSolution
+
+   Description: Implements AccountServer interface 
+*/
+
 class ServerSolution implements AccountServer {
 
 	static String fileName = "accounts.ser";
 
 	Map<String,Account> accountMap = null;
+
 
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
@@ -45,6 +60,14 @@ class ServerSolution implements AccountServer {
 		}
 	}
 	
+/**
+Method: newAccountFactory
+Inputs: string type, String name, float balance
+Returns: <3
+
+Description: creates account factory
+*/
+
 	private boolean newAccountFactory(String type, String name, float balance)
 		throws IllegalArgumentException {
 		
@@ -75,6 +98,13 @@ class ServerSolution implements AccountServer {
 		
 		return newAccountFactory(type, name, balance);
 	}
+/**
+    Method: closeAccount
+    Inputs: String Name
+    Returns: boolean
+
+    Description: sets account state to CLOSED, returns true if closed Succesfuly
+*/
 	
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
@@ -103,6 +133,13 @@ class ServerSolution implements AccountServer {
 		}
 		return result;
 	}
+/**
+Method: save accounts	 
+inputs: 
+Returns: 
+
+Description: saves account information to file
+*/
 	
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
