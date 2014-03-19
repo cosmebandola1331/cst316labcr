@@ -1,5 +1,12 @@
 package banking.primitive.core;
 
+/*
+ * Author Kevin Gary
+ * Modified by Nicholas Rynearson
+ * Date 3/19/2014
+ * 
+ * ServerSolution
+ */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -7,10 +14,14 @@ import java.util.HashMap;
 import java.io.*;
 
 import banking.primitive.core.Account.State;
-
+/*
+ * ServerSolution
+ * 
+ * implements Account Server
+ */
 class ServerSolution implements AccountServer {
 
-	static String fileName = "accounts.ser";
+private	static String fileName = "accounts.ser";
 
 	Map<String,Account> accountMap = null;
 
