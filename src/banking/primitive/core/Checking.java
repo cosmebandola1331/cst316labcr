@@ -5,17 +5,18 @@ public class Checking extends Account {
 	private static final long serialVersionUID = 11L;
 	private int numWithdraws = 0;
 	
-	private Checking(String name) {
-		super(name);
-	}
-
-    public static Checking createChecking(String name) {
+	public static Checking createChecking(String name) {
         return new Checking(name);
     }
 
+	private Checking(String name) {
+		super(name);
+	}
+	
 	public Checking(String name, float balance) {
 		super(name, balance);
 	}
+
 
 	/**
 	 * A deposit may be made unless the Checking account is closed
@@ -53,7 +54,8 @@ public class Checking extends Account {
 		return false;
 	}
 
-	public String getType() { return "Checking"; }
+	public String getType() { return "Checking"; 
+	}
 	
 	public String toString() {
 		return "Checking: " + getName() + ": " + getBalance();

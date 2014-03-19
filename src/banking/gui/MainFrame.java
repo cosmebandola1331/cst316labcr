@@ -1,5 +1,12 @@
 package banking.gui;
-
+/*
+ * Author Kevin Gary
+ * Modified by Nicholas Rynearson
+ * Date 3/19/2014
+ * 
+ * MainFrame
+ * The File that contains all the variables for the program 
+ */
 import banking.primitive.core.Account;
 import banking.primitive.core.AccountServer;
 import banking.primitive.core.AccountServerFactory;
@@ -12,6 +19,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
+/*
+* MainFrame
+* The Database for the program  
+*/
 class MainFrame extends JFrame {
 	AccountServer	myServer;
 	Properties		props;
@@ -106,8 +117,21 @@ class MainFrame extends JFrame {
 		
 		setSize(400, 250);
 	}
-
+/*
+ * DisplayHandler 
+ * 
+ * This class handles the windows used in the programs
+ *  */
 	class DisplayHandler implements ActionListener {
+		/*
+		 * Action Performed 
+		 * Inputs
+		 * accounts
+		 * StringBuffer
+		 * thisAcct
+		 * No returns
+		 * Handles the actions for Display Handler
+		 */
 		public void actionPerformed(ActionEvent e) {
 			List<Account> accounts = null;
 			if (e.getSource() == displayAccountsButton) {
@@ -135,7 +159,8 @@ class MainFrame extends JFrame {
 
 			if (myServer.newAccount(type, name, Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Account created successfully");
-			} else {
+			} 
+			else {
 				JOptionPane.showMessageDialog(null, "Account not created!");
 			}
 		}
@@ -147,7 +172,8 @@ class MainFrame extends JFrame {
 			try {
 				myServer.saveAccounts();
 				JOptionPane.showMessageDialog(null, "Accounts saved");
-			} catch (IOException exc) {
+			} 
+			catch (IOException exc) {
 				JOptionPane.showMessageDialog(null, "Error saving accounts");
 			}
 		}
@@ -161,7 +187,8 @@ class MainFrame extends JFrame {
 			Account acc = myServer.getAccount(name);
 			if (acc != null && acc.deposit(Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Deposit successful");
-			} else {
+			} 
+			else {
 				JOptionPane.showMessageDialog(null, "Deposit unsuccessful");
 			}		
 		}
@@ -174,7 +201,8 @@ class MainFrame extends JFrame {
 			Account acc = myServer.getAccount(name);
 			if (acc != null && acc.withdraw(Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Withdrawal successful");
-			} else {
+			}
+			else {
 				JOptionPane.showMessageDialog(null, "Withdrawal unsuccessful");
 			}		
 		}
