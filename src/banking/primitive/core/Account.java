@@ -1,5 +1,14 @@
 package banking.primitive.core;
 
+/*
+    File: Account.java
+    Author: Dr. Gary
+    Date: 3/19/2014
+
+    Description: Super class to Savings and Checking with virtual? methods for Savings and Checking class to implement.
+
+*/
+
 public abstract class Account implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
 
